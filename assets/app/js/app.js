@@ -39,18 +39,13 @@ var CompressorView = Backbone.View.extend({
             this.fileName = file.name.substring(0, file.name.length - this.outputFormat.length - 1);
             this.$(".compressed-image-container").addClass("hidden");
             this.$("#btn-compress").prop("disabled", false);
-            this.$("#btn-download").addClass("disabled");
         }
     },
     compressImage: function (e) {
-        var buttonDownload = this.$("#btn-download"),
-            quality = this.slider.val();
+        var quality = this.slider.val();
         var compressed = jic.compress(document.getElementById("originalImage"), quality, this.outputFormat);
         this.$("#compressedImage").attr("src", compressed.src);
-        buttonDownload.attr("href", compressed.src);
-        buttonDownload.attr("download", this.fileName + "-compressed." + this.outputFormat);
         this.$(".compressed-image-container").removeClass("hidden");
-        buttonDownload.removeClass("disabled");
     },
     imageIsLoaded: function(e) {
         $('#originalImage').attr('src', e.target.result);
