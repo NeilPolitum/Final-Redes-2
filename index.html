@@ -16,28 +16,37 @@
     <link rel="stylesheet" href="assets/image-comparator-slider/css/style.css">
     <link rel="stylesheet" href="assets/jquery/css/jquery.range.css">
     <link href="assets/app/css/custom.css" rel="stylesheet" type="text/css">
-    <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet"> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
 </head>
 
 <body>
-    <ul class="nav nav-pills">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="index.html">INICIO</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="documentacion.html">DOCUMENTACIÓN</a>
-        </li>
-    </ul><hr>
-    <h1 align="center"> PROYECTO FINAL REDES 2 </h1><hr>
-    <h4>&nbsp;&nbsp;&nbsp;&nbsp;- Harrison Felipe Velandia Pinto: 20171020079 <br>
-        &nbsp;&nbsp;&nbsp;&nbsp;- Juan Camilo Martinez Lopez: 20171020074 <br>
-        &nbsp;&nbsp;&nbsp;&nbsp;- Daniel Santiago Rubiano Pulido: 20171020075 <br><br>
-    </h4>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="index.html">Proyecto Final de Redes 2</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="index.html">Inicio <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="documentacion.html">Documentación</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <h1 align="center"> PROYECTO FINAL REDES 2 </h1>
+    <hr>
+
     <div id="compressor-image-container" class="container">
         <figure class="cd-image-container">
-                <img id="originalImage">
-                <span class="cd-image-label" data-type="original">Original</span>
+            <img id="originalImage">
+            <span class="cd-image-label" data-type="original">Original</span>
             <div class="compressed-image-container hidden">
                 <div class="cd-resize-img">
                     <img id="compressedImage">
@@ -46,9 +55,9 @@
                 <span class="cd-handle"></span>
             </div>
         </figure>
-        <div class="cd-image-container compression-controls">
+        <div class="cd-image-container compression-controls" style="justify-content: center; display: inline-flex;">
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                    <input type="hidden" class="slider-input" value="50" />
+                <input type="hidden" class="slider-input" value="50" />
             </div>
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                 <button id="btn-compress" class="btn btn-default btn-block" disabled>
@@ -69,19 +78,32 @@
             </div>
         </div>
     </div>
-    <br><hr><br>
-    <div class="container">
+    <br>
+    <hr><br>
+    <div id="Resultado" style="visibility: hidden;" class="container">
         <div class="row" align="center">
             <div class="col-sm-6">
-                <h2>Original</h2>
-                
+                <div class="card" style="width: 18rem;">
+                    <img id="imagenOriginal" class="card-img-top" src="..." alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Original</h5>
+                        <p id="infoOriginal" class="card-text"></p>
+                        <a href="#" class="btn btn-primary">Descargar</a>
+                    </div>
+                </div>
             </div>
             <div class="col-sm-6">
-                <h2>Comprimido</h2>
+                <div class="card" style="width: 18rem;">
+                    <img id="imagenComprimida" class="card-img-top" src="..." alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Comprimida</h5>
+                        <p id="infoComprimida" class="card-text"></p>
+                        <a id="descargarComprimida" href="#" class="btn btn-primary">Descargar</a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-
     <script src="assets/jquery/js/jquery.js"></script>
     <script src="assets/underscore/underscore-min.js"></script>
     <script src="assets/backbone/backbone-min.js"></script>
@@ -93,6 +115,13 @@
     <script src="assets/image-comparator-slider/js/jquery.mobile.custom.min.js"></script>
     <script src="assets/image-comparator-slider/js/modernizr.js"></script>
 
+    <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
 
 </body>
 
