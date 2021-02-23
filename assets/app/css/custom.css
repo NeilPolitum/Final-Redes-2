@@ -10,11 +10,23 @@ body {
 }
 
 .compression-controls {
-    padding-top: 25px;
+    width: 100%;
+    margin:auto;
+    display: inline-flex;
+    justify-content: center;
+}
+
+.cd-image-container{
+    display: flex;
+    justify-content: center;
 }
 
 div.compression-controls > div {
     margin-top: 10px;
+}
+
+.compressor-image-container{
+    text-align: center;
 }
 
 .btn {
@@ -29,6 +41,10 @@ div.compression-controls > div {
     position: relative;
     overflow: hidden;
     width: 100%;
+}
+
+.hidden{
+    visibility: hidden;
 }
 
 .btn-file input[type=file] {
