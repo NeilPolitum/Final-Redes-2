@@ -6,15 +6,35 @@ body {
     font-size: 100%;
     font-family: "Ubuntu", sans-serif;
     background-color: #f0f0f0;
-    padding-top: 20px;
+    padding-top: 0px;
 }
 
 .compression-controls {
-    padding-top: 25px;
+    width: 100%;
+    margin:auto;
+    margin-top: 20px;
+    display: inline-flex;
+    justify-content: center;
+}
+
+.cd-image-container{
+    display: flex;
+    justify-content: center;
 }
 
 div.compression-controls > div {
     margin-top: 10px;
+}
+
+.compressor-image-container{
+    text-align: center;
+}
+
+#Resultado{
+    display: flex;
+    justify-content: center;
+    margin-top:20px;
+    margin-bottom: 30px;
 }
 
 .btn {
@@ -29,6 +49,10 @@ div.compression-controls > div {
     position: relative;
     overflow: hidden;
     width: 100%;
+}
+
+.hidden{
+    visibility: hidden;
 }
 
 .btn-file input[type=file] {
