@@ -3,8 +3,12 @@ const inputImagen = document.getElementById("fileUploader");
 const imagenOriginal = document.getElementById("originalImage");
 const Comprimir=document.getElementById("btn-compress");
 
-const outputFormat= "jpg";
-const fileName= "compressed";
+this.outputFormat= "jpg";
+this.fileName= "comprimida";
+
+this.sizeOriginal=0;
+this.sizeComprimida=0;
+this.porcReducida=0;
 
 this.slider=this.getSlider();
 
@@ -20,8 +24,9 @@ inputImagen.addEventListener('change', (event)=> {
         reader.onload = this.imageIsLoaded;
         reader.readAsDataURL(file);
         console.log(file);  
-        console.log('Tamaño original: ', file.size);
-        document.getElementById("infoOriginal").innerHTML = file.size + ' bytes';
+        //console.log('Tamaño original: ', file.size);
+        this.sizeOriginal=file.size;
+        this.fileName=file.name.split('.')[0];
         if (file.type == "image/png") {
             this.outputFormat = "png";
         }
@@ -45,12 +50,15 @@ Comprimir.addEventListener('click',(e)=>{
     //this.$("#imagenComprimida").attr("src", img);
     this.$(".compressed-image-container").removeClass("hidden");
     document.getElementById("Resultado").style.visibility = 'visible';
-    document.getElementById("infoComprimida").innerHTML = file.size + ' bytes';
     var buttonDownload = document.getElementById("descargarComprimida");
     buttonDownload.href = compressed.src;
-    buttonDownload.download = this.fileName + "-compressed." + this.outputFormat;
-    console.log('imagen:', img);
-    console.log('file:', file)
+    buttonDownload.download = this.fileName + "-comprimida." + this.outputFormat;
+    this.sizeComprimida=file.size;
+    this.porcReducida=Math.round(((this.sizeOriginal-this.sizeComprimida)*100)/this.sizeOriginal);
+    console.log('Porcentaje reducido:',this.porcReducida,' sizeOriginal:', this.sizeOriginal,'sizeComprimida:',this.sizeComprimida);
+    document.getElementById("infoTamañoOriginal").innerHTML = this.reducirBytes(this.sizeOriginal);
+    document.getElementById("infoTamañoComprimida").innerHTML = this.reducirBytes(this.sizeComprimida);
+    document.getElementById("infoPorcComprimida").innerHTML = this.porcReducida + '%';
 })
 
 
@@ -81,5 +89,20 @@ function dataURLtoFile(dataurl, filename) {
     return new File([u8arr], filename, { type: mime });
 }
 
+function reducirBytes(number){
+    console.log(number, number.toString().length)
+    console.log(number.toString().length<7)
+    var respuesta;
+    var length=number.toString().length
+    if(length<4){
+        respuesta=number+' B'
+    }else if(length <7){
+        console.log('entro')
+        respuesta= (number/1000)+' kB'
+    }else{
+        respuesta=(number/1000000)+' MB'
+    }
+    return respuesta;
+}
 
 
