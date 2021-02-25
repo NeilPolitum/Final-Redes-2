@@ -96,7 +96,7 @@
             if ($.isFunction(this.options.format)) {
                 var a = this.isSingle() ? s : t.hasClass("low") ? "low" : "high";
                 n = this.options.format(h, a);
-            } else n = this.options.format.replace("%s", "Quality: " + h);
+            } else n = this.options.format.replace("%s", "Calidad: " + h);
             var l = e.html(n).width(),
                 r = i - l / 2;
             r = Math.min(Math.max(r, 0), this.options.width - l), e[o ? "animate" : "css"]({
